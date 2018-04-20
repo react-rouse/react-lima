@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CSSModules from 'react-css-modules';
+import { Button, InputItem } from 'antd-mobile';
 import styles from  './index.scss';
 import { increment, decrement, changed } from '../../redux/counter.redux';
 
@@ -22,8 +23,8 @@ class Counter extends Component {
     this.props.decrement();
   }
 
-  handleCountChange = (e) => {
-    this.props.changed(e.target.value);
+  handleCountChange = (value) => {
+    this.props.changed(value);
   }
 
   render() {
@@ -32,9 +33,13 @@ class Counter extends Component {
       <div>
         <h3>{count}</h3>
         <div>
-          <button onClick={this.handleMinusClick}>减少</button>
-          <input type="text" value={count} onChange={this.handleCountChange} />
-          <button onClick={this.handleAddClick}>增加</button>
+          <Button onClick={this.handleMinusClick}>减少</Button>
+          <InputItem 
+            type="text" 
+            placeholder="你也可以输入"
+            value={count} 
+            onChange={this.handleCountChange}>数量</InputItem>
+          <Button type="primary" onClick={this.handleAddClick}>增加</Button>
         </div>
       </div>
     );
