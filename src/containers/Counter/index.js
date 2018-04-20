@@ -4,10 +4,10 @@ import CSSModules from 'react-css-modules';
 import styles from  './index.scss';
 import { increment, decrement, changed } from '../../redux/counter.redux';
 
-// @connect(
-//   state: state,
-//   { increment, decrement, changed  }
-// )
+@connect(
+  state => state.counter,
+  { increment, decrement, changed  }
+)
 class Counter extends Component {
   constructor(props) {
     super(props);
@@ -41,17 +41,19 @@ class Counter extends Component {
   }
 };
 
-const mapStateToProps = state => state.counter;
+export default CSSModules(Counter, styles);
 
-const mapDispatchToProps = dispatch => {
-  return {
-    increment: () => dispatch(increment()),
-    decrement: () => dispatch(decrement()),
-    changed: (count) => dispatch(changed(count)) 
-  };
-};
+// const mapStateToProps = state => state.counter;
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CSSModules(Counter, styles));
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     increment: () => dispatch(increment()),
+//     decrement: () => dispatch(decrement()),
+//     changed: (count) => dispatch(changed(count)) 
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(CSSModules(Counter, styles));
