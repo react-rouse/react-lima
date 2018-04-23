@@ -150,6 +150,7 @@ module.exports = {
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
               cacheDirectory: true,
+              plugins: ['react-hot-loader/babel'],
             },
           },
           // "postcss" loader applies autoprefixer to our CSS.
@@ -191,47 +192,70 @@ module.exports = {
             ],
           },
           // {
-          //   test: /\.scss$/,
-          //   loaders: [
-          //     require.resolve('style-loader'),
-          //     require.resolve('css-loader'),
-          //     require.resolve('sass-loader'),
-          //   ]
+          //   test: /\.css$/,
+          //   exclude: /node_modules/,
+          //   use: ExtractTextPlugin.extract({
+          //     fallback: 'style-loader',
+          //     use: [
+          //       {
+          //         loader: 'css-loader',
+          //         options: {
+          //           modules: true,
+          //           localIdentName: '[name]__[local]__[hash:base64:5]',
+          //         },
+          //       },
+          //       'postcss-loader'
+          //     ],
+          //   }),
           // },
           {
             test: /\.css$/,
             exclude: /node_modules/,
-            use: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: {
-                    modules: true,
-                    localIdentName: '[name]__[local]__[hash:base64:5]',
-                  },
-                },
-                'postcss-loader'
-              ]
-            }),
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                query: {
+                  modules: true,
+                  localIdentName: '[name]__[local]__[hash:base64:5]'
+                }
+              },
+              'postcss-loader'
+            ],
           },
+          // {
+          //   test: /\.scss$/,
+          //   use: ExtractTextPlugin.extract({
+          //     fallback: 'style-loader',
+          //     use: [
+          //       {
+          //         loader: 'css-loader',
+          //         options: {
+          //           modules: true,
+          //           sourceMap: true,
+          //           importLoaders: 2,
+          //           localIdentName: '[name]__[local]__[hash:base64:5]',
+          //         },
+          //       },
+          //       'sass-loader',
+          //     ]
+          //   }),
+          // },
           {
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: {
-                    modules: true,
-                    sourceMap: true,
-                    importLoaders: 2,
-                    localIdentName: '[name]__[local]__[hash:base64:5]',
-                  }
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                query: {
+                  modules: true,
+                  sourceMap: true,
+                  importLoaders: 2,
+                  localIdentName: '[name]__[local]__[hash:base64:5]',
                 },
-                'sass-loader',
-              ]
-            }),
+              },
+              'sass-loader'
+            ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
@@ -256,7 +280,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin({ filename: 'styles.css', allChunks: true, }),
+    // new ExtractTextPlugin({ filename: 'styles.css', allChunks: true, }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

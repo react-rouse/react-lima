@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
 import logo from '../../logo.svg';
 import CSSModules from 'react-css-modules';
 import styles from  './index.scss';
 import Counter from '../Counter';
 
+@hot(module)
+@CSSModules(styles)
 class App extends Component {
   render() {
     return (
@@ -21,4 +24,5 @@ class App extends Component {
   }
 }
 
-export default CSSModules(App, styles);
+// export default hot(module)(CSSModules(App, styles));
+export default App;
