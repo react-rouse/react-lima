@@ -7,7 +7,6 @@ const initState = {
 };
 
 export function counter(state = initState, action) {
-  console.log(action);
   switch(action.type) {
     case INCREMENT:
       return {

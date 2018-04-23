@@ -28,18 +28,18 @@ class Counter extends Component {
   }
 
   render() {
-    const {count} = this.props;
+    const { count } = this.props;
     return (
       <div>
-        <h3>{count}</h3>
+        <h3>{ count }</h3>
         <div>
-          <Button onClick={this.handleMinusClick}>减少</Button>
+          <Button onClick={ this.handleMinusClick }>减少</Button>
           <InputItem 
             type="text" 
             placeholder="你也可以输入"
-            value={count} 
-            onChange={this.handleCountChange}>数量</InputItem>
-          <Button type="primary" onClick={this.handleAddClick}>增加</Button>
+            value={ count } 
+            onChange={ this.handleCountChange }>数量</InputItem>
+          <Button type="primary" onClick={ this.handleAddClick }>增加</Button>
         </div>
       </div>
     );
