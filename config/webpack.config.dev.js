@@ -254,10 +254,17 @@ module.exports = {
                   modules: true,
                   sourceMap: true,
                   importLoaders: 2,
-                  localIdentName: '[name]__[local]__[hash:base64:5]',
-                },
+                  localIdentName: '[name]__[local]__[hash:base64:5]'
+                }
               },
-              'sass-loader'
+              'sass-loader',
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  // array of paths
+                  resources: [path.resolve(__dirname, '../src/assets/styles/app.scss')]
+                }
+              }
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.

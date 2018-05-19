@@ -1,0 +1,82 @@
+// 字体 Fonts
+@mixin font-b {
+  font-weight: bold;
+}
+@mixin font-36 {
+  font-size: 36px;
+}
+@mixin font-32 {
+  font-size: 32px;
+}
+@mixin font-28 {
+  font-size: 28px;  
+}
+@mixin font-26 {
+  font-size: 26px;  
+}
+@mixin font-24 {
+  font-size: 24px;  
+}
+@mixin font-22 {
+  font-size: 22px;  
+}
+@mixin font-18 {
+  font-size: 18px;  
+}
+@mixin font-14 {
+  font-size: 14px;  
+}
+@mixin font-0 {
+  font-size: 0;  
+}
+
+// 清除浮动
+@mixin clearfix{
+  &:before{
+    content: "";
+    display: table;
+  }
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+    overflow: hidden;
+  }
+  zoom: 1;
+}
+
+// 容器内的内容水平垂直居中
+@mixin vertical_middle {
+  text-align: center;
+  &:before {
+    display: inline-block;
+    content: "";
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+//flex布局
+@mixin box($horizontal: initial, $vertical: initial){
+  display: flex;
+  justify-content: $horizontal;
+  align-items: $vertical;
+}
+
+//单行省略
+@mixin nowrap{
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+//多行省略
+@mixin nowrapS{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

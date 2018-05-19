@@ -1,20 +1,20 @@
-
 .login{
   .header{
     height: 60px;
-    background-color: #3b3e40;
+    background-color: $color-b01;
     padding: 0 20px;
-    color:#fff;
+    color:$color-white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     &__back{
       :global(.icon-back){
-        font-size: 22px;
+        @include font-22;
       }
+      
     }
     &__title{
-      font-size: 26px;
+      @include font-26;
     }
   }
 }

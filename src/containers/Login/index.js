@@ -6,7 +6,7 @@ import styles from  './index.scss';
 
 @hot(module)
 @CSSModules(styles)
-export default class Counter extends Component {
+export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -16,7 +16,7 @@ export default class Counter extends Component {
       <div styleName="login">
         <div styleName="header">
           <div styleName="header__back">
-            <span class="iconfont icon-back"></span>
+            <span className="iconfont icon-back"></span>
           </div>
           <div styleName="header__title">登陆</div>
           <div></div>
