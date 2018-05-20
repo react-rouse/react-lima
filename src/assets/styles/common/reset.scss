@@ -8,18 +8,13 @@
  // word-wrap: break-word;
 }
 html,body{
-  //@include font-n14;
-  color: $color-a02;
   font-family: PingFangSC-Regular, 'Microsoft YaHei', STXihei,PingFangSC, Helvetica, Arial;
   width: 100%;
 
 }
-html{
-  font-size: 100PX;
-}
+
 body {
-  font-size: 14PX;
-  //line-height: 20PX;
+  font-size: 14px;
 }
 
 ul,ol,li{
@@ -51,9 +46,6 @@ table {
 }
 
 @media (max-width: 768px) {
-  html{
-    font-size: 50PX;
-  }
   html,body {
     height: 100%;
     width: 100%;

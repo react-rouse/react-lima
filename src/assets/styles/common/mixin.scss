@@ -20,8 +20,14 @@
 @mixin font-22 {
   font-size: 22px;  
 }
+@mixin font-20 {
+  font-size: 20px;  
+}
 @mixin font-18 {
   font-size: 18px;  
+}
+@mixin font-16 {
+  font-size: 16px;  
 }
 @mixin font-14 {
   font-size: 14px;  
