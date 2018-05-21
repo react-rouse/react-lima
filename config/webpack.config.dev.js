@@ -28,7 +28,20 @@ const env = getClientEnvironment(publicUrl);
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
+//导入proxy
+const proxy = require('http-proxy-middleware')
 module.exports = {
+  devServer: {
+    host: 'localhost',
+    port: '3000',
+    proxy: [
+      {
+        target: 'http://result.eolinker.com',
+        changeOrigin: true,
+        secure: false
+      }
+    ]
+  },
   // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
   // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
   devtool: 'cheap-module-source-map',
