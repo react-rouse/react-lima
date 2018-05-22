@@ -1,15 +1,17 @@
-import * as user from './type';
-let defaultState = {
-    userName: '',
+import * as type from './type';
+
+const defaultState = {
+  userName: '',
 };
-
-
 
 export const userData = (state = defaultState, action) => {
-    switch(action.type){
-        case user.USERINFO_GET:
-            return { ...state, userName:action.userName };
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case type.USERINFO_GET:
+      return { ...state, userName: action.userName };
+    default:
+      return state;
+  }
 };
+
+export const test = '1';
+
