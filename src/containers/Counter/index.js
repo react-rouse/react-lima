@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CSSModules from 'react-css-modules';
 import { Button, InputItem } from 'antd-mobile';
-import styles from  './index.scss';
+import styles from './index.scss';
 import { increment, decrement, changed } from '../../redux/counter.redux';
 
 @connect(
   state => state.counter,
-  { increment, decrement, changed  }
+  { increment, decrement, changed }
 )
 class Counter extends Component {
   constructor(props) {
@@ -31,20 +31,22 @@ class Counter extends Component {
     const { count } = this.props;
     return (
       <div>
-        <h3>{ count }</h3>
+        <h3>{count}</h3>
         <div>
-          <Button onClick={ this.handleMinusClick }>减少</Button>
-          <InputItem 
-            type="text" 
+          <Button onClick={this.handleMinusClick}>减少</Button>
+          <InputItem
+            type="text"
             placeholder="你也可以输入"
-            value={ count } 
-            onChange={ this.handleCountChange }>数量</InputItem>
-          <Button type="primary" onClick={ this.handleAddClick }>增加</Button>
+            value={count}
+            onChange={this.handleCountChange}
+          >数量
+          </InputItem>
+          <Button type="primary" onClick={this.handleAddClick}>增加</Button>
         </div>
       </div>
     );
   }
-};
+}
 
 export default CSSModules(Counter, styles);
 
@@ -54,7 +56,7 @@ export default CSSModules(Counter, styles);
 //   return {
 //     increment: () => dispatch(increment()),
 //     decrement: () => dispatch(decrement()),
-//     changed: (count) => dispatch(changed(count)) 
+//     changed: (count) => dispatch(changed(count))
 //   };
 // };
 
