@@ -14,7 +14,7 @@ export default function (api, url, params, method = 'POST') {
     if(method==='POST'){
         fetchObj.body=qs.stringify(params);
     }else{
-        fetchUrl+=qs.stringify(params);
+        params && (fetchUrl+='&'+qs.stringify(params));
     }
     return new Promise((resolve, reject) => {
         fetch(fetchUrl,fetchObj).then((res)=>{

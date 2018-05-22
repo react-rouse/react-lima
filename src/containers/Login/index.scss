@@ -47,7 +47,12 @@
         -webkit-text-fill-color: transparent;
         @include font-18;
         &:focus{
-          color:$color-red;
+          color:$color-red;//光标颜色
+        }
+        &::-webkit-input-placeholder{ //placeholder颜色
+          color:$color-b03;
+          text-shadow:none;
+          -webkit-text-fill-color: initial;
         }
       }
     }

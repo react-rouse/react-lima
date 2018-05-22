@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+// import { is, fromJS } from 'immutable';
 import { hot } from 'react-hot-loader';
 import CSSModules from 'react-css-modules';
 import { Toast } from 'antd-mobile';
 import styles from  './index.scss';
 import { BASE_API as API } from '@/utils/api';
 import fetch from '@/utils/fetch';
-    
+import { connect } from 'react-redux';
+import { getUserData } from '@/redux/user/action';
+
 @hot(module)
 @CSSModules(styles)
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { tel:'',pwd:'' };
@@ -23,23 +26,24 @@ export default class Login extends Component {
       pwd:e.target.value
     });
   };
-  loginHandler=()=>{
+  loginHandler=async ()=>{
+    const self=this;
     if(!/^1[3456789]\d{9}$/.test(this.state.tel)){
       return Toast.info('手机号格式不正确');
     }
     if(!/(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{8,20}$/.test(this.state.pwd)){
       return Toast.info('密码应为8~20位的数字、符号或字母中的2种组合');
     }
-    fetch(API,'login',{ tel:this.state.tel,pwd:this.state.pwd },'POST').then(function (res) {
-      console.log(res);
-      if(res.code===200){
-        Toast.success('登录成功');
-      }else{
-        Toast.fail('登录失败');
-      }
-    });
-
+    let result = await fetch(API,'login',{ tel:this.state.tel,pwd:this.state.pwd });
+    if(result.code===200){
+      await self.props.getUserData();
+      Toast.success(`${self.props.userData.userName},登录成功`);
+     // self.props.history.push('/');
+    }else{
+      Toast.fail('登录失败');
+    }
   };
+
   render() {
     return (
       <div styleName="login">
@@ -72,3 +76,9 @@ export default class Login extends Component {
     );
   }
 };
+
+export default connect(state => ({
+  userData: state.userData,
+}), {
+  getUserData
+})(Login);
