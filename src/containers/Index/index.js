@@ -18,11 +18,7 @@ class Index extends Component {
     super(props);
     this.state = { };
   }
-  telHandler=() => {
-    // this.setState({
-    //   tel: e.target.value
-    // });
-  };
+
   render() {
     return (
       <div>
