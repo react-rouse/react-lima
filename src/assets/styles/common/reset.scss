@@ -1,16 +1,14 @@
-
-
+/* stylelint-disable */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   -webkit-appearance: none;
- // word-wrap: break-word;
+  // word-wrap: break-word;
 }
 html,body{
   font-family: PingFangSC-Regular, 'Microsoft YaHei', STXihei,PingFangSC, Helvetica, Arial;
   width: 100%;
-
 }
 
 body {
@@ -31,7 +29,7 @@ img{
   width: 100%;
 }
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f0f0f0 inset;
+  -webkit-box-shadow: 0 0 0 1000px #f0f0f0 inset;
 }
 
 
