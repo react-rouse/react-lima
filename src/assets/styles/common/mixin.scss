@@ -1,37 +1,49 @@
+/* stylelint-disable */
 // 字体 Fonts
 @mixin font-b {
   font-weight: bold;
 }
+
 @mixin font-36 {
   font-size: 36px;
 }
+
 @mixin font-32 {
   font-size: 32px;
 }
+
 @mixin font-28 {
   font-size: 28px;  
 }
+
 @mixin font-26 {
   font-size: 26px;  
 }
+
 @mixin font-24 {
   font-size: 24px;  
 }
+
 @mixin font-22 {
   font-size: 22px;  
 }
+
 @mixin font-20 {
   font-size: 20px;  
 }
+
 @mixin font-18 {
   font-size: 18px;  
 }
+
 @mixin font-16 {
   font-size: 16px;  
 }
+
 @mixin font-14 {
   font-size: 14px;  
 }
+
 @mixin font-0 {
   font-size: 0;  
 }
@@ -48,6 +60,7 @@
     clear: both;
     overflow: hidden;
   }
+
   zoom: 1;
 }
 

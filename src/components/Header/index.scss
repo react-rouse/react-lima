@@ -1,0 +1,25 @@
+/* stylelint-disable */
+.header {
+  height: 60px;
+  line-height: 60px;
+  background-color: $color-b01;
+  padding: 0 20px;
+  color: $color-white;
+  position: relative;
+  &__back {
+    position: absolute;
+    z-index: 5;
+    :global(.icon-back) {
+      @include font-22;
+    } 
+  }
+  &__title {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+
+    @include font-26;
+  }
+}

@@ -12,8 +12,9 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
 }
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -28,8 +29,9 @@ const env = getClientEnvironment(publicUrl);
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
-//导入proxy
-const proxy = require('http-proxy-middleware')
+// 导入proxy
+const proxy = require('http-proxy-middleware');
+
 module.exports = {
   devServer: {
     host: 'localhost',
@@ -78,7 +80,7 @@ module.exports = {
     // There are also additional JS chunk files if you use code splitting.
     chunkFilename: 'static/js/[name].chunk.js',
     // This is the URL that app is served from. We use "/" in development.
-    publicPath: publicPath,
+    publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
@@ -100,7 +102,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -132,7 +134,7 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-              
+
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -161,7 +163,7 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
+
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
@@ -275,7 +277,7 @@ module.exports = {
                 loader: 'sass-resources-loader',
                 options: {
                   // array of paths
-                  resources: [path.resolve(__dirname, '../src/assets/styles/app.scss')]
+                  resources: [resolve('src/assets/styles/app.scss')]
                 }
               }
             ],

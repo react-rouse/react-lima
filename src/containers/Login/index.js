@@ -8,6 +8,7 @@ import fetch from '@/utils/fetch';
 import { connect } from 'react-redux';
 import getUserData from '@/redux/user/action';
 import loginPng from '@/assets/images/login.png';
+import ComHeader from '@/components/Header';
 import styles from './index.scss';
 
 
@@ -18,6 +19,7 @@ class Login extends Component {
     super(props);
     this.state = { tel: '', pwd: '' };
   }
+
   telHandler=(e) => {
     this.setState({
       tel: e.target.value
@@ -29,7 +31,6 @@ class Login extends Component {
     });
   };
   loginHandler=async () => {
-    const self = this;
     if (!/^1[3456789]\d{9}$/.test(this.state.tel)) {
       return Toast.info('手机号格式不正确');
     }
@@ -38,9 +39,9 @@ class Login extends Component {
     }
     const result = await fetch(API, 'login', { tel: this.state.tel, pwd: this.state.pwd });
     if (result.code === 200) {
-      await self.props.getUserData();
-      Toast.success(`${self.props.userData.userName},登录成功`);
-      // self.props.history.push('/');
+      await this.props.getUserData();
+      Toast.success(`${this.props.userData.userName},登录成功`);
+      // this.props.history.push('/');
     } else {
       Toast.fail('登录失败');
     }
@@ -49,13 +50,7 @@ class Login extends Component {
   render() {
     return (
       <div styleName="login">
-        <div styleName="header">
-          <div styleName="header__back">
-            <span className="iconfont icon-back" />
-          </div>
-          <div styleName="header__title">登陆</div>
-          <div />
-        </div>
+        <ComHeader history={this.props.history}>登陆</ComHeader>
         <div styleName="logo">
           <img styleName="logo__img" src={loginPng} alt="登录图标" />
         </div>
