@@ -1,0 +1,74 @@
+.login{
+  .header{
+    height: 60px;
+    line-height: 60px;
+    background-color: $color-b01;
+    padding: 0 20px;
+    color:$color-white;
+    position: relative;
+    &__back{
+      :global(.icon-back){
+        @include font-22;
+      } 
+    }
+    &__fordowa{
+      :global(.icon-more){
+        @include font-22;
+      } 
+    }
+    &__title{
+      width: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      text-align: center;
+      @include font-24;
+    }
+  }
+  .content{
+    margin-top: 20px;
+    background-color: $color-white;
+    padding: 0 26px;
+    .input-wrapper{
+      height: 72px;
+      display:flex;
+      align-items: center;
+      border-bottom: solid 1px $color-b03;
+      .text{
+        @include font-18;
+        color: $color-b04;
+        width: 78px;
+      }
+      .input-inner{
+        flex: 1;
+        height: 100%;
+        margin-left: 20px;
+        background-color: inherit;
+        text-shadow: 0px 0px 0px $color-b04;//文字颜色
+        -webkit-text-fill-color: transparent;
+        @include font-18;
+        &:focus{
+          color:$color-red;
+        }
+      }
+    }
+    .input-wrapper:last-child{
+      border: none;
+    }
+  }
+  .btn{
+    padding: 0 26px;
+    .login-btn{
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      margin-top: 100px;
+      margin-bottom: 30px;
+      border-radius: 25px;
+      background: linear-gradient(to right, $color-red , $color-dark_red);
+      color:$color-white;
+      @include font-20;
+    }
+  }
+  
+}

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import CSSModules from 'react-css-modules';
-//import { Button, InputItem } from 'antd-mobile';
+import { Toast } from 'antd-mobile';
 import styles from  './index.scss';
-
+import { BASE_API as API } from '@/utils/api';
+import fetch from '@/utils/fetch';
+    
 @hot(module)
 @CSSModules(styles)
 export default class Login extends Component {
@@ -22,7 +24,21 @@ export default class Login extends Component {
     });
   };
   loginHandler=()=>{
-    console.log('登录',this.state.tel,':::',this.state.pwd);
+    if(!/^1[3456789]\d{9}$/.test(this.state.tel)){
+      return Toast.info('手机号格式不正确');
+    }
+    if(!/(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{8,20}$/.test(this.state.pwd)){
+      return Toast.info('密码应为8~20位的数字、符号或字母中的2种组合');
+    }
+    fetch(API,'login',{ tel:this.state.tel,pwd:this.state.pwd },'POST').then(function (res) {
+      console.log(res);
+      if(res.code===200){
+        Toast.success('登录成功');
+      }else{
+        Toast.fail('登录失败');
+      }
+    });
+
   };
   render() {
     return (
