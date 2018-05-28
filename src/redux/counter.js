@@ -2,11 +2,11 @@ const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 const CHANGED = 'CHANGED';
 
-const initState = {
+const defaultState = {
   count: 0
 };
 
-export function counter(state = initState, action) {
+export function counter(state = defaultState, action) {
   switch (action.type) {
     case INCREMENT:
       return {

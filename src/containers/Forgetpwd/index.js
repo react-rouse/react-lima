@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
 import CSSModules from 'react-css-modules';
+import { hot } from 'react-hot-loader';
 // import { Button, InputItem } from 'antd-mobile';
 import styles from './index.scss';
 
@@ -50,7 +50,6 @@ export default class Login extends Component {
         <div styleName="btn">
           <button styleName="login-btn" onClick={this.loginHandler}>登录</button>
         </div>
-
       </div>
     );
   }

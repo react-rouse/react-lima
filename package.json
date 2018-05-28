@@ -60,13 +60,14 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "bootstrap": "yarn || npm i",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "node scripts/start.js",
     "build-js": "node scripts/build.js",
     "start:chokidar": "npm-run-all watch-css start-js",
     "start:demand": "react-app-rewired start",
-    "start": "npm run start-js",
+    "start": "npm-run-all bootstrap start-js",
     "build:chokidar": "npm-run-all build-css build-js",
     "build:demand": "react-app-rewired build",
     "build": "npm run build-js",

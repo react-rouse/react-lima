@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 // import { is, fromJS } from 'immutable';
-import { hot } from 'react-hot-loader';
 import CSSModules from 'react-css-modules';
-// import { Toast } from 'antd-mobile';
-// import { BASE_API as API } from '@/utils/api';
-// import fetch from '@/utils/fetch';
+import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
-import getUserData from '@/redux/user/action';
+import { getUserData } from '@/redux/user';
 import ComHeader from '@/components/Header';
 import styles from './index.scss';
-
 
 @hot(module)
 @CSSModules(styles)
@@ -29,7 +25,7 @@ class Index extends Component {
 }
 
 export default connect(state => ({
-  userData: state.userData,
+  user: state.user,
 }), {
   getUserData
 })(Index);

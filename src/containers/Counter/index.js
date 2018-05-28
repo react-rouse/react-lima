@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CSSModules from 'react-css-modules';
 import { Button, InputItem } from 'antd-mobile';
+import { increment, decrement, changed } from '@/redux/counter';
 import styles from './index.scss';
-import { increment, decrement, changed } from '../../redux/counter.redux';
 
 @connect(
   state => state.counter,

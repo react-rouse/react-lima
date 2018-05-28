@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
 import CSSModules from 'react-css-modules';
+import { Button } from 'antd-mobile';
+
 import logo from '../../logo.svg';
 import styles from './index.scss';
 import Counter from '../Counter';
 
-@hot(module)
 @CSSModules(styles)
 class App extends Component {
   render() {
@@ -19,6 +19,7 @@ class App extends Component {
         <p styleName="intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Button onClick={() => { this.props.history.push('/login'); }}>登录</Button>
       </div>
     );
   }
