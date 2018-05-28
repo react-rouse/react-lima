@@ -1,15 +1,15 @@
 /**
  * Created by T00006331 on 2018/5/22.
  */
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { userData } from './user/reducer';
-import { counter } from './counter.redux';
+
+import reducers from './reducers';
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  combineReducers({ userData, counter }),
+  reducers,
   composeEnhancers(applyMiddleware(thunk))
 );
 

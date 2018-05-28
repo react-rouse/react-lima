@@ -2,8 +2,9 @@
  * Created by T00006331 on 2018/5/21.
  */
 import qs from 'qs';
+import { BASE_MOCK_API as API } from './api';
 
-export default function (api, url, params, method = 'POST') {
+export default function (url, params, method = 'POST') {
   const fetchObj = {
     method,
     mode: 'cors',
@@ -11,7 +12,7 @@ export default function (api, url, params, method = 'POST') {
       'Content-Type': 'application/x-www-form-urlencoded',
     }
   };
-  let fetchUrl = `${api}${url}`;
+  let fetchUrl = `${API}${url}`;
   if (method === 'POST') {
     fetchObj.body = qs.stringify(params);
   } else if (method === 'GET' && params) {
